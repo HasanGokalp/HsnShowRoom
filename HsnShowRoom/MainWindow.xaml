@@ -8,6 +8,7 @@
         Title="MainWindow" Height="450" Width="800"
         Name="mainwindow">
     <Grid>
-        <Button CommandParameter="{x:Reference Name=mainwindow}" Command="{Binding ShowWindowCommand}" Content="Tıkla" HorizontalAlignment="Left" Margin="400,194,0,0" VerticalAlignment="Top"/>
+        <Button CommandParameter="{x:Reference Name=mainwindow}" Command="{Binding ShowWindowCommandGetAllCar}" Content="Tıkla" HorizontalAlignment="Left" Margin="400,194,0,0" VerticalAlignment="Top"/>
+        <Button Content="pls" Command="{Binding ShowWindowCommandCreateCar}" CommandParameter="{x:Reference Name=mainwindow}" HorizontalAlignment="Left" Margin="511,204,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

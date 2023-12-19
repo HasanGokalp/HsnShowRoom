@@ -1,0 +1,32 @@
+﻿<Window x:Class="CreateCar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HsnShowRoom"
+        mc:Ignorable="d"
+        Title="CreateCar" Height="450" Width="800"
+        Name="createcar">
+    <Window.Resources>
+        <local:MultiValueConverter x:Key="MultiValueConverter" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Name:" />
+            <TextBox Name="txtName" Text="{Binding Name, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="Model:" />
+            <TextBox Name="txtModel" Text="{Binding Model, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <Button Content="Create" Command="{Binding CreateCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                        <Binding Path="Text" ElementName="txtName" />
+                        <Binding Path="Text" ElementName="txtModel" />
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
