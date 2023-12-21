@@ -6,15 +6,14 @@
         xmlns:local="clr-namespace:HsnShowRoom"
         mc:Ignorable="d"
         Title="GetAllCar" Height="450" Width="800">
-    <Grid>
-        <ListView ItemsSource="{Binding Cars}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Model}" Header="Model"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </Grid>
+    <TabControl>
+        <DataGrid Grid.Column="0" x:Name="ClientsGrid" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}">
+        <DataGrid.Columns>
+            <DataGridTextColumn x:Name="deneme" Header="Numara" Binding="{Binding Id}"/>
+            <DataGridTextColumn Header="Markası" Binding="{Binding Name}"/>
+            <DataGridTextColumn Header="Modeli" Binding="{Binding Model}"/>
+        </DataGrid.Columns>
+    </DataGrid>
+    </TabControl>
+    
 </Window>

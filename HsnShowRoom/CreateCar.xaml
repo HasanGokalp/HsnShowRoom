@@ -8,7 +8,7 @@
         Title="CreateCar" Height="450" Width="800"
         Name="createcar">
     <Window.Resources>
-        <local:MultiValueConverter x:Key="MultiValueConverter" />
+        <local:MultiValueConverter x:Key="MultiValueConverter"/>
     </Window.Resources>
     <Grid>
         <StackPanel Margin="10">

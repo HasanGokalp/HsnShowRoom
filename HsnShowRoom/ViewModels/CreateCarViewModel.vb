@@ -1,16 +1,12 @@
-﻿Imports System.Collections.ObjectModel
-Imports System.ComponentModel
-Imports System.Windows.Input
+﻿Imports System.ComponentModel
+Imports System.Runtime.CompilerServices
 
 Public Class CreateCarViewModel
     Implements INotifyPropertyChanged
-
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
-
-    Protected Overridable Sub OnPropertyChanged(propertyName As String)
+    Protected Overridable Sub OnPropertyChanged(<CallerMemberName> Optional propertyName As String = Nothing)
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
-
     Private _id As Integer
     Public Property Id As Integer
         Get
@@ -23,7 +19,6 @@ Public Class CreateCarViewModel
             End If
         End Set
     End Property
-
     Private _make As String
     Public Property Make As String
         Get
@@ -36,7 +31,6 @@ Public Class CreateCarViewModel
             End If
         End Set
     End Property
-
     Private _model As String
     Public Property Model As String
         Get
@@ -49,9 +43,7 @@ Public Class CreateCarViewModel
             End If
         End Set
     End Property
-
     Public Property CreateCommand As ICommand
-
     Public Sub New()
         CreateCommand = New RelayCommand(AddressOf CreateEntity, AddressOf CanCreateEntity)
     End Sub

@@ -1,10 +1,8 @@
 ﻿Public Class CreateCommand
     Implements ICommand
-
     Public Event CanExecuteChanged As EventHandler Implements ICommand.CanExecuteChanged
     Private Property _Execute As Action(Of Dictionary(Of String, String))
     Private Property _CanExecute As Predicate(Of Dictionary(Of String, String))
-
     Public Sub New(execute As Action(Of Dictionary(Of String, String)), canExecute As Predicate(Of Dictionary(Of String, String)))
         _Execute = execute
         _CanExecute = canExecute
