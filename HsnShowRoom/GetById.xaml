@@ -28,12 +28,20 @@
         <Button Command="{Binding UpdateCommand}" Content="Button" HorizontalAlignment="Left" Margin="712,398,0,0" VerticalAlignment="Top">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                    <Binding Path="Text" ElementName="txtUName" />
+                    <Binding Path="Text" ElementName="txtUName"/>
                     <Binding Path="Text" ElementName="txtUModel" />
                 </MultiBinding>
             </Button.CommandParameter>
         </Button>
-            <TextBox Name="txtUName" HorizontalAlignment="Left" Margin="663,37,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtUModel" HorizontalAlignment="Left" Margin="663,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtUName" HorizontalAlignment="Left" Margin="663,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="deneme" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:GetByIdValidator/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+            <TextBox Name="txtUModel" HorizontalAlignment="Left" Margin="663,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

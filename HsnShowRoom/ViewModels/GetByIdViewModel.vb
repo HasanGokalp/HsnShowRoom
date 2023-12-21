@@ -6,6 +6,8 @@ Imports System.Runtime.CompilerServices
 Public Class GetByIdViewModel
     Implements INotifyPropertyChanged
 
+    Public Property deneme As String
+
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
 
     Public Property Cars As ObservableCollection(Of Car) = New ObservableCollection(Of Car)
