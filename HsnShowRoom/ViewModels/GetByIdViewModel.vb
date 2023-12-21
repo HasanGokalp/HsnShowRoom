@@ -52,10 +52,14 @@ Public Class GetByIdViewModel
                 Dim entity = New Car With {
                 .Name = name,
                 .Model = model,
-                .Id = 1
+                .Id = SelectedCar.Id
             }
                 ctx.Cars.AddOrUpdate(entity)
                 ctx.SaveChanges()
+                Cars = New ObservableCollection(Of Car)
+                If entity IsNot Nothing Then
+                    Cars.Add(entity)
+                End If
                 OnPropertyChanged(NameOf(Cars))
             End Using
         End If
