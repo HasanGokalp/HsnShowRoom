@@ -1,5 +1,6 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.ComponentModel
+Imports System.Data.Entity.Migrations
 Imports System.Runtime.CompilerServices
 
 Public Class GetByIdViewModel
@@ -9,10 +10,15 @@ Public Class GetByIdViewModel
 
     Public Property Cars As ObservableCollection(Of Car) = New ObservableCollection(Of Car)
 
+    Public Property SelectedCar As Car
+
     'Command
     Public Property GetByIdCommand As ICommand
+    Public Property UpdateCommand As ICommand
+
     Public Sub New()
         GetByIdCommand = New RelayCommand(AddressOf GetById, AddressOf CanShow)
+        UpdateCommand = New RelayCommand(AddressOf UpdateEntity, AddressOf CanShow)
     End Sub
 
     Public Sub GetById(obj As Object)
@@ -34,6 +40,25 @@ Public Class GetByIdViewModel
                 End If
             End If
         End Using
+    End Sub
+
+    Public Sub UpdateEntity(obj As Object)
+        If TypeOf obj Is Object() Then
+            Dim parameters = DirectCast(obj, Object())
+            Dim name = parameters(0).ToString()
+            Dim model = parameters(1).ToString()
+
+            Using ctx = New ShowRoomCtx
+                Dim entity = New Car With {
+                .Name = name,
+                .Model = model,
+                .Id = 1
+            }
+                ctx.Cars.AddOrUpdate(entity)
+                ctx.SaveChanges()
+                OnPropertyChanged(NameOf(Cars))
+            End Using
+        End If
     End Sub
 
     Public Function CanShow()

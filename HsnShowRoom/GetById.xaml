@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:HsnShowRoom"
         mc:Ignorable="d"
         Title="GetById" Height="450" Width="800">
+    <Window.Resources>
+        <local:MultiValueConverter x:Key="MultiValueConverter"/>
+    </Window.Resources>
     <Grid>
         
         <TextBox Name="txtId" HorizontalAlignment="Left" Margin="149,398,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Command="{Binding GetByIdCommand}" CommandParameter="{Binding ElementName=txtId}" Content="Button" HorizontalAlignment="Left" Margin="600,398,0,0" VerticalAlignment="Top"/>
-        <ListBox ItemsSource="{Binding Cars}" Margin="0,0,206,110">
+        <ListBox ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" Margin="0,0,206,110">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -22,5 +25,15 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock HorizontalAlignment="Left" Margin="116,399,0,0" TextWrapping="Wrap" Text="Id :" VerticalAlignment="Top"/>
+        <Button Command="{Binding UpdateCommand}" Content="Button" HorizontalAlignment="Left" Margin="712,398,0,0" VerticalAlignment="Top">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                    <Binding Path="Text" ElementName="txtUName" />
+                    <Binding Path="Text" ElementName="txtUModel" />
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
+            <TextBox Name="txtUName" HorizontalAlignment="Left" Margin="663,37,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtUModel" HorizontalAlignment="Left" Margin="663,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
