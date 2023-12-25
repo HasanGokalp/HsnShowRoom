@@ -13,7 +13,7 @@
         
         <TextBox Name="txtId" HorizontalAlignment="Left" Margin="149,398,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Command="{Binding GetByIdCommand}" CommandParameter="{Binding ElementName=txtId}" Content="Button" HorizontalAlignment="Left" Margin="600,398,0,0" VerticalAlignment="Top"/>
-        <ListBox ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" Margin="0,0,206,110">
+        <ListBox Name="List" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" SelectionChanged="ListBox_SelectionChanged" Margin="0,0,206,110">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

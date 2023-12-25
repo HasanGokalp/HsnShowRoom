@@ -9,8 +9,8 @@
         Name="mainwindow">
     <Grid>
         <Button CommandParameter="{x:Reference Name=mainwindow}" Command="{Binding ShowWindowCommandGetAllCar}" Content="Tıkla" HorizontalAlignment="Left" Margin="400,194,0,0" VerticalAlignment="Top"/>
-        <Button Content="pls" Command="{Binding ShowWindowCommandCreateCar}" CommandParameter="{x:Reference Name=mainwindow}" HorizontalAlignment="Left" Margin="511,204,0,0" VerticalAlignment="Top"/>
-        <Button Command="{Binding ShowEntityId}" CommandParameter="{x:Reference Name=mainwindow}" Content="Button" HorizontalAlignment="Left" Margin="354,341,0,0" VerticalAlignment="Top"/>
+        <Button Content="pls" Command="{Binding ShowWindowCommandCreateCar}" CommandParameter="{x:Reference Name=mainwindow}" HorizontalAlignment="Left" Margin="508,194,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding ShowEntityId}" CommandParameter="{x:Reference Name=mainwindow}" Content="Button" HorizontalAlignment="Left" Margin="309,194,0,0" VerticalAlignment="Top"/>
         
     </Grid>
 </Window>
